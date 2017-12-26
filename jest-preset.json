@@ -14,7 +14,7 @@
   "testMatch": [
     "**/__tests__/**/*.(js|jsx|json|node|ts|tsx|coffee|litcoffee|coffee.md)",
     "**/?(*.)(spec|test).(js|jsx|json|node|ts|tsx|coffee|litcoffee|coffee.md)",
-    "**/spec/**/?(*.)-spec.(js|jsx|json|node|ts|tsx|coffee|litcoffee|coffee.md)"
+    "**/spec/**/*-spec.(js|jsx|json|node|ts|tsx|coffee|litcoffee|coffee.md)"
   ],
   "transform": {
     "^.+\\.(coffee|litcoffee|coffee\\.md|js|ts)$": "jest-preset-atom/transform"
