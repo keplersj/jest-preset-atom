@@ -18,11 +18,34 @@ const defaultBabelConfig = {
   stage: 0
 };
 
+const BABEL_PREFIXES = [
+  '/** @babel */',
+  '"use babel"',
+  '\'use babel\'',
+  '/* @flow */'
+]
+
+const BABEL_PREFIX_LENGTH = Math.max.apply(Math, BABEL_PREFIXES.map(function (prefix) {
+  return prefix.length
+}))
+
+function shouldBabelCompile(sourceCode) {
+  var start = sourceCode.substr(0, BABEL_PREFIX_LENGTH)
+  return BABEL_PREFIXES.some(function (prefix) {
+    return start.indexOf(prefix) === 0
+  })
+}
+
+
 function processBabel(src, path) {
-  return babel.transform(
-    src,
-    Object.assign({}, defaultBabelConfig, { filename: path })
-  ).code;
+  if (shouldBabelCompile(src)) {
+    return babel.transform(
+      src,
+      Object.assign({}, defaultBabelConfig, { filename: path })
+    ).code;
+  }
+  
+  return src;
 }
 
 const defaultTypeScriptConfig = {
