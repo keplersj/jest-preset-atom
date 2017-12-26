@@ -18,5 +18,6 @@
   ],
   "transform": {
     "^.+\\.(coffee|litcoffee|coffee\\.md|js|ts)$": "jest-preset-atom/transform"
-  }
+  },
+  "transformIgnorePatterns": ["/node_modules/", "/app.asar/"]
 }
