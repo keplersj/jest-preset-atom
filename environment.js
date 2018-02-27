@@ -4,13 +4,12 @@ const JsdomEnvironment = require("jest-environment-jsdom");
 
 class AtomEnvironment extends JsdomEnvironment {
   constructor(config) {
-    super(
-      Object.assign({}, config, {
-        globals: Object.assign({}, config.globals, {
-          atom: global.atom
-        })
-      })
-    );
+    super(config);
+  }
+
+  async setup() {
+    await super.setup();
+    this.global.atom = global.atom;
   }
 }
 
