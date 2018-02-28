@@ -16,11 +16,12 @@ class AtomEnvironment extends JsdomEnvironment {
     //
     // This is bad and hacky. I'm sorry.
     this.testedPackage = this.global.atom.packages.loadPackage(process.cwd());
-
-    // And of course we have to activate it ourselves.
-    //
-    // I'm still very sorry.
-    await this.testedPackage.activate();
+    
+    if (this.testedPackage !== null) {
+      this.testedPackage.enable()
+    } else {
+      throw new Error(`Could not load package at ${process.cwd()}!`)
+    }
   }
 }
 
