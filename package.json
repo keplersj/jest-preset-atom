@@ -18,6 +18,7 @@
   "homepage": "https://github.com/keplersj/jest-preset-atom#readme",
   "dependencies": {
     "jest-mock": "^22.4.3",
-    "jest-util": "^22.4.3"
+    "jest-util": "^22.4.3",
+    "pkg-dir": "^2.0.0"
   }
 }
