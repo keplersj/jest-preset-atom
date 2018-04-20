@@ -17,10 +17,7 @@
   },
   "homepage": "https://github.com/keplersj/jest-preset-atom#readme",
   "dependencies": {
-    "babel-core": "5.8.38",
-    "coffee-script": "1.12.7",
     "jest-mock": "^22.4.3",
-    "jest-util": "^22.4.3",
-    "typescript-simple": "1.0.0"
+    "jest-util": "^22.4.3"
   }
 }
