@@ -22,7 +22,9 @@
   },
   "transformIgnorePatterns": ["/node_modules/", "/app.asar/"],
   "moduleNameMapper": {
-    "oniguruma": "<rootDir>/node_modules/jest-preset-atom/noop.js"
+    "oniguruma": "<rootDir>/node_modules/jest-preset-atom/noop.js",
+    "text-buffer": "<rootDir>/node_modules/jest-preset-atom/noop.js"
   },
-  "setupTestFrameworkScriptFile": "<rootDir>/node_modules/jest-preset-atom/setup.js"
+  "setupTestFrameworkScriptFile":
+    "<rootDir>/node_modules/jest-preset-atom/setup.js"
 }
