@@ -20,5 +20,9 @@
     "^.+\\.(coffee|litcoffee|coffee\\.md|js|ts)$":
       "<rootDir>/node_modules/jest-preset-atom/transform.js"
   },
-  "transformIgnorePatterns": ["/node_modules/", "/app.asar/"]
+  "transformIgnorePatterns": ["/node_modules/", "/app.asar/"],
+  "moduleNameMapper": {
+    "oniguruma": "<rootDir>/node_modules/jest-preset-atom/noop.js"
+  },
+  "setupTestFrameworkScriptFile": "<rootDir>/node_modules/jest-preset-atom/setup.js"
 }

@@ -1,30 +1,30 @@
 "use strict";
 
-const JsdomEnvironment = require("jest-environment-jsdom");
+const mock = require('jest-mock');
+const {FakeTimers, installCommonGlobals} = require('jest-util');
 
-class AtomEnvironment extends JsdomEnvironment {
+class AtomEnvironment {
   constructor(config) {
-    super(config);
+    const global = (this.global = window);
+    installCommonGlobals(global, config.globals);
+    this.moduleMocker = new mock.ModuleMocker(global);
+    this.fakeTimers = new FakeTimers({
+      config,
+      global,
+      moduleMocker: this.moduleMocker,
+    });
   }
 
-  async setup() {
-    // Let Jest setup the base Jsdom environment.
-    await super.setup();
-    
-    // Pass down the Atom global configured by the test runner.
-    this.global.atom = global.atom;
+  setup() {
+    return Promise.resolve();
+  }
 
-    // Naively assume the current working directory is the package we want to
-    //    test and use a private method from Atom PackageManager to load it.
-    //
-    // This is bad and hacky. I'm sorry.
-    this.testedPackage = this.global.atom.packages.loadPackage(process.cwd());
+  teardown() {
+    return Promise.resolve();
+  }
 
-    // Correctly add the name of the package.
-    // This is an issue with CI if the repo name does not match the repo name.
-    this.global.atom.packages.loadedPackages[
-      this.testedPackage.metadata.name
-    ] = this.testedPackage;
+  runScript(script) {
+    return script.runInThisContext();
   }
 }
 
