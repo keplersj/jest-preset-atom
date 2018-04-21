@@ -1,6 +1,6 @@
 {
   "name": "jest-preset-atom",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Preset to run Atom tests with Jest.",
   "repository": {
     "type": "git",
