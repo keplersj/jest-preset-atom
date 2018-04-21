@@ -26,5 +26,6 @@
     "text-buffer": "<rootDir>/node_modules/jest-preset-atom/noop.js"
   },
   "setupTestFrameworkScriptFile":
-    "<rootDir>/node_modules/jest-preset-atom/setup.js"
+    "<rootDir>/node_modules/jest-preset-atom/setup.js",
+  "coveragePathIgnorePatterns": ["/node_modules/", "/app.asar/"]
 }
