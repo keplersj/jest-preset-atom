@@ -16,6 +16,7 @@
     "**/?(*.)(spec|test).(js|jsx|json|node|ts|tsx|coffee|litcoffee|coffee.md)",
     "**/spec/**/*-spec.(js|jsx|json|node|ts|tsx|coffee|litcoffee|coffee.md)"
   ],
+  "testPathIgnorePatterns": ["/node_modules/", "/atom/Atom.app/"],
   "transform": {
     "^.+\\.(coffee|litcoffee|coffee\\.md|js|ts)$":
       "<rootDir>/node_modules/jest-preset-atom/transform.js"
